@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu">
+    <item
+        android:id="@+id/submenu"
+        android:showAsAction="never"
+        android:title="Add">
+            <menu>
+                <item
+                    android:id="@+id/Day"
+                    android:title="Day" />
+                <item
+                    android:id="@+id/Hotel"
+                    android:title="Hotel"/>
+                <item
+                    android:id="@+id/Transport"
+                    android:title="Transport"/>
+                <item
+                    android:id="@+id/Attraction"
+                    android:title="Attraction"/>
+            </menu>
+    </item>
+    <item
+        android:id="@+id/delete"
+        android:title="Delete"
+        android:showAsAction="always"/>
+    <item
+        android:id="@+id/update"
+        android:title="Update"
+        android:showAsAction="always"/>
+    <item
+        android:id="@+id/save"
+        android:title="Save" />
+    <item
+        android:id="@+id/close"
+        android:title="Close" />
+</menu>
