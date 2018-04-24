@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class TravelLog extends Activity implements OnItemClickListener, OnInitListener {
-/*   -----test to see if commit and pull works ------*/
+
     private ListView listview;
     private ArrayList<String> items = new ArrayList<String>();
     private EditText edittext;
