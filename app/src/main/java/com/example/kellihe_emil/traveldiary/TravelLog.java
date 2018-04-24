@@ -95,6 +95,44 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.Day:
+                // add new day to listview
+                String toAdd = "Day: " + edittext.getText().toString();
+                items.add(toAdd);
+                //index = items.indexOf(toAdd); // find position in ArrayList
+                //String newItem = (index+1) +". " + toAdd;
+                //items.set(index, newItem); // add item with number
+                aa.notifyDataSetChanged();
+                edittext.setText(""); // set edittext to empty after add
+                speak(toAdd + " added.");
+                return true;
+
+            case R.id.Hotel:
+                //add new hotel to listview
+                String hotel = "Hotel: " + edittext.getText().toString();
+                items.add(hotel);
+                aa.notifyDataSetChanged();
+                edittext.setText("");
+                speak(hotel + " added.");
+                return true;
+
+            case R.id.Transport:
+                //add new transport to listview
+                String transport = "Transport: " + edittext.getText().toString();
+                items.add(transport);
+                aa.notifyDataSetChanged();
+                edittext.setText("");
+                speak(transport + " added.");
+                return true;
+
+            case R.id.Attraction:
+                //add new attraction to listview
+                String attract = "Attraction: " + edittext.getText().toString();
+                items.add(attract);
+                aa.notifyDataSetChanged();
+                edittext.setText("");
+                speak(attract + " added.");
+                return true;
 
             case R.id.delete:
                 // delete item from list
