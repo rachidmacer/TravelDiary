@@ -30,6 +30,24 @@
         android:text="Enter text here ..."
         android:textColor="#660066"
         />
+    <button
+        android:id="@+id/map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maps"
+        />
+    <button
+        android:id="@+id/reviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reviews"
+        />
+    <button
+        android:id="@+id/post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        />
 
     <ListView
         android:id="@+id/list"
