@@ -33,39 +33,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <button
             android:id="@+id/map"
-            android:text="Maps"
-            android:layout_marginLeft="10dp"
-            android:layout_height="30dp"
             android:layout_width="70dp"
-            />
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="Maps" />
+
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </Space>
+            android:layout_weight="1"></Space>
 
         <button
             android:id="@+id/review"
-            android:text="Reviews"
+            android:layout_width="70dp"
             android:layout_height="30dp"
-            android:layout_width="70dp"/>
+            android:text="Reviews" />
+
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" >
-        </Space>
+            android:layout_weight="1"></Space>
 
         <button
             android:id="@+id/post"
-            android:text="Post"
-            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
             android:layout_height="30dp"
-            android:layout_width="70dp"/>
+            android:layout_marginRight="10dp"
+            android:text="Post" />
 
     </LinearLayout>
 
