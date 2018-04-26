@@ -88,10 +88,10 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         String text = items.get(position);
-        //int space = text.indexOf(" ");
-        //String sub = text.substring(space+1);
+        int space = text.indexOf(" ");
+        String sub = text.substring(space+1);
         edittext.setText(text); // when you click on a list item, it displays text in the edittext
-        textview.setText(text); // when you click on a list item, it adds to the text view for later use
+        textview.setText(sub); // when you click on a list item, it adds to the text view for later use
         selected = position; // for later use
     }
 
