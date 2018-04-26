@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.app.ActionBar;
@@ -29,6 +30,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     private ListView listview;
     private ArrayList<String> items = new ArrayList<String>();
     private EditText edittext;
+    private TextView textview;
     private ArrayAdapter<String> aa;
     private TextToSpeech speaker;
     private int selected;
@@ -44,6 +46,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         listview = (ListView)findViewById(R.id.list);
         listview.setOnItemClickListener(this);  //set listener on widget
         edittext = (EditText)findViewById(R.id.edit);
+        textview = (TextView)findViewById(R.id.text2);
         aa = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,    //Android supplied List item format
                 items);
@@ -88,6 +91,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         //int space = text.indexOf(" ");
         //String sub = text.substring(space+1);
         edittext.setText(text); // when you click on a list item, it displays text in the edittext
+        textview.setText(text); // when you click on a list item, it adds to the text view for later use
         selected = position; // for later use
     }
 
