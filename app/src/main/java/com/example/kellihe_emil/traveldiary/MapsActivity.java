@@ -48,7 +48,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Toast.makeText(this, "Try: MAIN STREET MA", Toast.LENGTH_LONG).show();
         address = (EditText) findViewById(R.id.-----------);
-        btnSearch = (Button) findViewById(R.id.-----------);
+        btnSearch = (Button) findViewById(R.id.myBtnSearch);
 
         gc = new Geocoder(this);  //create Geocoder object
 
