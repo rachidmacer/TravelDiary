@@ -79,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String addressInput = address.getText().toString();
+                String addressInput = TravelLog.location;
                 //clear map
                 mMap.clear();
 
