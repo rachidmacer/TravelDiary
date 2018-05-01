@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,7 +27,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
     private Button btnSearch;
-    private EditText address;
+    private TextView address;
     private Geocoder gc;
     private double lat;
     private double lon;
@@ -47,7 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         Toast.makeText(this, "Try: MAIN STREET MA", Toast.LENGTH_LONG).show();
-        address = (EditText) findViewById(R.id.-----------);
+        address = (TextView) findViewById(R.id.text2);
         btnSearch = (Button) findViewById(R.id.myBtnSearch);
 
         gc = new Geocoder(this);  //create Geocoder object
