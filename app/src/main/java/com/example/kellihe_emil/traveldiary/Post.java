@@ -52,6 +52,7 @@ public class Post extends Activity implements View.OnClickListener{
 
         Timer t = new Timer();
         t.schedule(task1, 1000);
+        
         Timer t2 = new Timer();
         t2.schedule(task2, 5000);
 
