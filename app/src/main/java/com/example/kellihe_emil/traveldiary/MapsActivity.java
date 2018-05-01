@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Toast.makeText(this, "Hope we found it!", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Hope we found it!", Toast.LENGTH_LONG).show();
         address = (TextView) findViewById(R.id.myAddress);
         btnSearch = (Button) findViewById(R.id.myBtnSearch);
 
