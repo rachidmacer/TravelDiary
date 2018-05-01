@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.graphics.drawable.AnimationDrawable;
@@ -14,6 +18,8 @@ import android.widget.ImageView;
 
 public class Post extends Activity implements View.OnClickListener{
     private Button button;
+    private String file = "travel.txt";
+    private String emailbody;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +70,24 @@ public class Post extends Activity implements View.OnClickListener{
         msg.putExtra(Intent.EXTRA_EMAIL, new String[]{"", ""});
         msg.putExtra(Intent.EXTRA_CC, new String[]{"", ""});
         msg.putExtra(Intent.EXTRA_BCC, new String[]{"", ""});
-        msg.putExtra(Intent.EXTRA_TEXT, "Hope you're still enjoying class.");
-        msg.putExtra(Intent.EXTRA_SUBJECT, "Email Demo");
+            try {
+                //open stream for reading from file
+                InputStream in = openFileInput(file);
+                InputStreamReader isr = new InputStreamReader(in);
+                BufferedReader reader = new BufferedReader(isr);
+                String str = null;
+
+                int count = 0;
+                while ((str = reader.readLine()) != null) {
+                    count++; // count number of records read
+                    emailbody += str;
+                }
+            }catch (IOException e) {
+
+            }
+        msg.putExtra(Intent.EXTRA_TEXT, emailbody);
+        msg.putExtra(Intent.EXTRA_SUBJECT, "Travel Log");
+
 
         //check to be sure email is installed on handset
         if (msg.resolveActivity(getPackageManager()) != null) {
