@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/selected" android:oneshot="false">
-  <item android:drawable="@drawable/runner0" android:duration="50" /> 
-  <item android:drawable="@drawable/runner1" android:duration="50" /> 
-  <item android:drawable="@drawable/runner2" android:duration="50" /> 
-  <item android:drawable="@drawable/runner3" android:duration="50" /> 
-  <item android:drawable="@drawable/runner4" android:duration="50" /> 
-  <item android:drawable="@drawable/runner5" android:duration="50" /> 
+  <item android:drawable="@drawable/sun1" android:duration="50" />
+  <item android:drawable="@drawable/sun2" android:duration="50" />
+  <item android:drawable="@drawable/sun3" android:duration="50" />
+  <item android:drawable="@drawable/sun4" android:duration="50" />
+  <item android:drawable="@drawable/sun5" android:duration="50" />
+  <item android:drawable="@drawable/sun6" android:duration="50" />
+  <item android:drawable="@drawable/sun7" android:duration="50" />
+  <item android:drawable="@drawable/sun8" android:duration="50" />
+  <item android:drawable="@drawable/sun9" android:duration="50" />
+  <item android:drawable="@drawable/sun10" android:duration="50" />
+  <item android:drawable="@drawable/sun11" android:duration="50" />
+  <item android:drawable="@drawable/sun12" android:duration="50" />
+  <item android:drawable="@drawable/sun13" android:duration="50" />
+  <item android:drawable="@drawable/sun14" android:duration="50" />
+  <item android:drawable="@drawable/sun15" android:duration="50" />
 </animation-list>
