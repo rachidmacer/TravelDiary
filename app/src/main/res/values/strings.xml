@@ -2,4 +2,5 @@
     <string name="app_name">TravelDiary</string>
     <string name="instructions">First, type the date. Then click the menu bar, click Add and then click Add Day. Do the same steps for hotel, transportation, and attraction(s).</string>
     <string name="title_activity_maps">Map</string>
+    <string name="postDirection">Click the button to email yourself all the information!</string>
 </resources>
