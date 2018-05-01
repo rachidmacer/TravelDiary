@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Button;
 import android.app.ActionBar;
-
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,7 +39,6 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     private int index;
     private String fileName;
     private static final String tag = "TravelLog";
-    private final int requestCode_235 = 235;
 
     // buttons to other activities:
     private Button mapsButton;
@@ -62,6 +60,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         listview = (ListView)findViewById(R.id.list);
         listview.setOnItemClickListener(this);  //set listener on widget
         edittext = (EditText)findViewById(R.id.edit);
+        edittext.setOnClickListener(this);
         textview = (TextView)findViewById(R.id.text2);
         mapsButton = (Button)findViewById(R.id.map);
         mapsButton.setOnClickListener(this);
@@ -274,6 +273,9 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
                 i3 = new Intent(this, Post.class);
                 startActivity(i3);
                 break;
+
+            case R.id.edit:
+                edittext.setText("");
         }
     }
 }
