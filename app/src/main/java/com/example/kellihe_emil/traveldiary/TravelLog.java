@@ -1,5 +1,10 @@
 package com.example.kellihe_emil.traveldiary;
 
+//Michael Augello, McKenna Buck, Emily Kelliher, Rachid Macer
+//Term Project: Travel Diary
+//May 1, 2018
+//Main Activity
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -61,6 +66,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_log);
 
+        //Sets up activities for the buttons
         listview = (ListView)findViewById(R.id.list);
         listview.setOnItemClickListener(this);  //set listener on widget
         edittext = (EditText)findViewById(R.id.edit);
@@ -91,6 +97,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
 
         fileName = "travel.txt";
 
+        //Read in existing file
         try {
             InputStream in = openFileInput(fileName);
             InputStreamReader isr = new InputStreamReader(in);
@@ -128,6 +135,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        //Establishes switch statement for buttons pressed in add menu
         switch (item.getItemId()) {
             case R.id.Day:
                 // add new day to listview
@@ -212,7 +220,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     }
 
     public void saveList() {
-        // save list to list.txt
+        // save list to travel.txt
         try {
             FileOutputStream fos = openFileOutput(fileName, MODE_PRIVATE);
             OutputStreamWriter out = new OutputStreamWriter(fos);
