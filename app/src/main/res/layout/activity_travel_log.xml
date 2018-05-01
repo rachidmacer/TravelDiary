@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Maps"
-            android:color= "#660066"
+            android:background="#660066"
             android:textColor= "#00CCFF"
             android:layout_weight="1"/>
 
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reviews"
-            android:color= "#660066"
+            android:background= "#660066"
             android:textColor= "#00CCFF"
             android:layout_weight="1"/>
 
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:text="Post"
-            android:color= "#660066"
+            android:background= "#660066"
             android:textColor= "#00CCFF"
             android:layout_weight="1"/>
 
