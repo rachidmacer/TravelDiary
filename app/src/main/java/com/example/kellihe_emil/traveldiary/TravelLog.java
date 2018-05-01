@@ -2,6 +2,7 @@ package com.example.kellihe_emil.traveldiary;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
@@ -44,11 +45,13 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     private Button mapsButton;
     private Button reviewsButton;
     private Button postButton;
+    private Button dialButton;
 
     //explicit intents
     private Intent i1;
     private Intent i2;
     private Intent i3;
+    private Intent i4;
 
     public static String url;
     public static String location;
@@ -69,6 +72,8 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         reviewsButton.setOnClickListener(this);
         postButton = (Button)findViewById(R.id.post);
         postButton.setOnClickListener(this);
+        dialButton = (Button)findViewById(R.id.Dial);
+        dialButton.setOnClickListener(this);
 
         aa = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,    //Android supplied List item format
@@ -274,6 +279,12 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
             case R.id.post:
                 i3 = new Intent(this, Post.class);
                 startActivity(i3);
+                break;
+
+            case R.id.Dial:
+                Uri uri3 = Uri.parse("tel:411");
+                i4 = new Intent(Intent.ACTION_DIAL,uri3);
+                startActivity(i4);
                 break;
 
             case R.id.edit:
