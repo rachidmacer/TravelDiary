@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <button
+        <Button
             android:id="@+id/map"
             android:layout_width="70dp"
             android:layout_height="30dp"
@@ -48,9 +48,9 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
 
-        <button
+        <Button
             android:id="@+id/review"
             android:layout_width="70dp"
             android:layout_height="30dp"
@@ -61,9 +61,9 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
 
-        <button
+        <Button
             android:id="@+id/post"
             android:layout_width="70dp"
             android:layout_height="30dp"
