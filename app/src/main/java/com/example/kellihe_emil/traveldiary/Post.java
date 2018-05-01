@@ -15,7 +15,7 @@ public class Post extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        //for animation purposes
+        //for animation purposes, shows a sun because its vacation!
         ImageView img = (ImageView) findViewById(R.id.simple_anim);
         img.setBackgroundResource(R.drawable.simple_animation);
 
@@ -45,7 +45,6 @@ public class Post extends Activity {
         public void run() {
             ImageView img = (ImageView) findViewById(R.id.simple_anim);
             AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
-            frameAnimation.stop();
         }
     }
 
