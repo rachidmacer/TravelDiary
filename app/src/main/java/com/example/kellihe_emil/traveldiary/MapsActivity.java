@@ -1,5 +1,10 @@
 package com.example.kellihe_emil.traveldiary;
 
+//Michael Augello, McKenna Buck, Emily Kelliher, Rachid Macer
+//CS-480 Term Project
+//May 1, 2018
+//Maps Activity
+
 import android.app.Dialog;
 import android.location.Address;
 import android.location.Geocoder;

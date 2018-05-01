@@ -1,5 +1,10 @@
 package com.example.kellihe_emil.traveldiary;
 
+//Michael Augello, McKenna Buck, Emily Kelliher, Rachid Macer
+//CS-480 Term Project
+//May 1, 2018
+//Review Activity
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
