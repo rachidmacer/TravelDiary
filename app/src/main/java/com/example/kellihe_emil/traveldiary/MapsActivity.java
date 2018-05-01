@@ -46,8 +46,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Toast.makeText(this, "Try: MAIN STREET MA", Toast.LENGTH_LONG).show();
-        address = (TextView) findViewById(R.id.text2);
+        //Toast.makeText(this, "Hope we found it!", Toast.LENGTH_LONG).show();
+        address = (TextView) findViewById(R.id.myAddress);
         btnSearch = (Button) findViewById(R.id.myBtnSearch);
 
         gc = new Geocoder(this);  //create Geocoder object
