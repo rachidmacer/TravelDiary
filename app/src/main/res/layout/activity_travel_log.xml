@@ -38,12 +38,13 @@
 
         <Button
             android:id="@+id/map"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="Maps"
             android:color= "#660066"
-            android:textColor= "#00CCFF"/>
+            android:textColor= "#00CCFF"
+            android:layout_weight="1"/>
 
         <Space
             android:layout_width="0dp"
@@ -52,11 +53,12 @@
 
         <Button
             android:id="@+id/review"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Reviews"
             android:color= "#660066"
-            android:textColor= "#00CCFF"/>
+            android:textColor= "#00CCFF"
+            android:layout_weight="1"/>
 
         <Space
             android:layout_width="0dp"
@@ -65,12 +67,13 @@
 
         <Button
             android:id="@+id/post"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:text="Post"
             android:color= "#660066"
-            android:textColor= "#00CCFF"/>
+            android:textColor= "#00CCFF"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
