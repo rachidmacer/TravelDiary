@@ -51,6 +51,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     private Intent i3;
 
     public static String url;
+    public static String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +117,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         textview.setText(sub); // when you click on a list item, it adds to the text view for later use
         selected = position; // for later use
         url = "http://www.google.com/search?q=" + textview.getText().toString() + " reviews";
+        location = textview.getText().toString();
     }
 
     @Override
