@@ -60,9 +60,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng sydney = new LatLng(42.3856989, -71.22168);
+        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         //set marker listener
         mMap.setOnMarkerClickListener(
@@ -117,7 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }//end loop
 
                         //move camera to last location found
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 4.0f));
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 13.0f));
                     }
                 } catch (Exception e) {
                     Toast.makeText(MapsActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
