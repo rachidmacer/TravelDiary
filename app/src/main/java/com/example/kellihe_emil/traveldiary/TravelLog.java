@@ -1,6 +1,7 @@
 package com.example.kellihe_emil.traveldiary;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
@@ -8,12 +9,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Button;
 import android.app.ActionBar;
 
 import java.io.BufferedReader;
@@ -25,7 +28,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class TravelLog extends Activity implements OnItemClickListener, OnInitListener {
+public class TravelLog extends Activity implements OnItemClickListener, OnInitListener, OnClickListener {
 
     private ListView listview;
     private ArrayList<String> items = new ArrayList<String>();
@@ -38,6 +41,11 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     private String fileName;
     private static final String tag = "TravelLog";
 
+    // buttons to other activities:
+    private Button mapsButton;
+    private Button reviewsButton;
+    private Button postButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +55,13 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         listview.setOnItemClickListener(this);  //set listener on widget
         edittext = (EditText)findViewById(R.id.edit);
         textview = (TextView)findViewById(R.id.text2);
+        mapsButton = (Button)findViewById(R.id.map);
+        mapsButton.setOnClickListener(this);
+        reviewsButton = (Button)findViewById(R.id.review);
+        reviewsButton.setOnClickListener(this);
+        postButton = (Button)findViewById(R.id.post);
+        postButton.setOnClickListener(this);
+
         aa = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,    //Android supplied List item format
                 items);
@@ -232,4 +247,24 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         super.onDestroy();
     }
 
+    // Perform action on click
+    public void onClick(View v) {
+
+        switch(v.getId()) {
+            case R.id.map:
+                Intent i1 = new Intent(this, MapsActivity.class);
+                startActivity(i1);
+                break;
+
+            case R.id.review:
+                Intent i2 = new Intent(this, Reviews.class);
+                startActivity(i2);
+                break;
+
+            case R.id.post:
+                Intent i3 = new Intent(this, Post.class);
+                startActivity(i3);
+                break;
+        }
+    }
 }
