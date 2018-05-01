@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,7 +27,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
     private Button btnSearch;
-    private TextView address;
+    private EditText address;
     private Geocoder gc;
     private double lat;
     private double lon;
@@ -47,7 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         //Toast.makeText(this, "Hope we found it!", Toast.LENGTH_LONG).show();
-        address = (TextView) findViewById(R.id.myAddress);
+        address = (EditText) findViewById(R.id.myAddress);
         btnSearch = (Button) findViewById(R.id.myBtnSearch);
 
         gc = new Geocoder(this);  //create Geocoder object
@@ -80,6 +80,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         btnSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String addressInput = TravelLog.location;
+                address.setText(addressInput);
                 //clear map
                 mMap.clear();
 
