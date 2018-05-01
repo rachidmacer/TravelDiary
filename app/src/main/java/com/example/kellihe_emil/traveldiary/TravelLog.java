@@ -40,11 +40,19 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
     private int index;
     private String fileName;
     private static final String tag = "TravelLog";
+    private final int requestCode_235 = 235;
 
     // buttons to other activities:
     private Button mapsButton;
     private Button reviewsButton;
     private Button postButton;
+
+    //explicit intents
+    private Intent i1;
+    private Intent i2;
+    private Intent i3;
+
+    public static String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +116,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
         edittext.setText(text); // when you click on a list item, it displays text in the edittext
         textview.setText(sub); // when you click on a list item, it adds to the text view for later use
         selected = position; // for later use
+        url = "http://www.google.com/search?q=" + textview.getText().toString() + " reviews";
     }
 
     @Override
@@ -252,17 +261,17 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
 
         switch(v.getId()) {
             case R.id.map:
-                Intent i1 = new Intent(this, MapsActivity.class);
+                i1 = new Intent(this, MapsActivity.class);
                 startActivity(i1);
                 break;
 
             case R.id.review:
-                Intent i2 = new Intent(this, Reviews.class);
+                i2 = new Intent(this, Reviews.class);
                 startActivity(i2);
                 break;
 
             case R.id.post:
-                Intent i3 = new Intent(this, Post.class);
+                i3 = new Intent(this, Post.class);
                 startActivity(i3);
                 break;
         }
