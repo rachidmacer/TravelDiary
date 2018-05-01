@@ -9,16 +9,21 @@
     tools:context="com.example.kellihe_emil.traveldiary.Post">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/postDirection"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="Click the button to email yourself all of your travel information!"
+        android:textAlignment="center"
+        android:textColor="#660066"
+        android:textSize="25dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Email"/>
+        android:text="Email"
+        android:background="#660066"
+        android:textColor= "#00CCFF"/>
 
     <ImageView android:id="@+id/simple_anim"
         android:layout_width="wrap_content"
