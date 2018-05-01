@@ -134,16 +134,14 @@ public class Post extends Activity implements View.OnClickListener{
                 InputStream in = openFileInput(file);
                 InputStreamReader isr = new InputStreamReader(in);
                 BufferedReader reader = new BufferedReader(isr);
-                String str = null;
+                String str = "";
 
                 int count = 0;
                 while ((str = reader.readLine()) != null) {
                     count++; // count number of records read
                     emailbody += str;
                 }
-            }catch (IOException e) {
-
-            }
+            } catch (IOException e) {}
         msg.putExtra(Intent.EXTRA_TEXT, emailbody);
         msg.putExtra(Intent.EXTRA_SUBJECT, "Travel Log");
 
