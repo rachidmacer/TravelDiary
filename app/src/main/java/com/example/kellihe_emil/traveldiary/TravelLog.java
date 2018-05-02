@@ -106,9 +106,6 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
 
             while ((str = reader.readLine()) != null) {
                 items.add(str);
-                index = items.indexOf(str); // find position in ArrayList
-                String newItem = (index + 1) + ". " + str;
-                items.set(index, newItem); // add item with number
                 aa.notifyDataSetChanged();
             }
             reader.close();
@@ -123,10 +120,8 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         String text = items.get(position);
-        int space = text.indexOf(" ");
-        String sub = text.substring(space+1);
         edittext.setText(text); // when you click on a list item, it displays text in the edittext
-        textview.setText(sub); // when you click on a list item, it adds to the text view for later use
+        textview.setText(text); // when you click on a list item, it adds to the text view for later use
         selected = position; // for later use
         url = "http://www.google.com/search?q=" + textview.getText().toString() + " reviews";
         location = textview.getText().toString();
@@ -141,9 +136,6 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
                 // add new day to listview
                 String toAdd = "Day: " + edittext.getText().toString();
                 items.add(toAdd);
-                //index = items.indexOf(toAdd); // find position in ArrayList
-                //String newItem = (index+1) +". " + toAdd;
-                //items.set(index, newItem); // add item with number
                 aa.notifyDataSetChanged();
                 edittext.setText(""); // set edittext to empty after add
                 speak(toAdd + " added.");
@@ -179,16 +171,8 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
             case R.id.delete:
                 // delete item from list
                 String del = edittext.getText().toString();
-                //String toDelete = (selected+1) + ". " + del;
                 index = items.indexOf(del);
                 items.remove(index);
-                /*for(String s:items) {
-                    int pos = items.indexOf(s); // get the position of the item in the ArrayList
-                    int sp = s.indexOf(" "); // get the index of the space for that item
-                    String i = s.substring(sp+1); // get rid of the numbering
-                    String newNum = (pos+1) + ". " + i; // add back new numbering
-                    items.set(pos,newNum); // update ArrayList with new numbers
-                }*/
                 aa.notifyDataSetChanged();
                 edittext.setText(""); // set edittext to empty after delete
                 speak(del + " deleted.");
@@ -197,7 +181,6 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
             case R.id.update:
                 // update list item
                 String toUpdate = edittext.getText().toString();
-                //String update = (selected+1) + ". " + toUpdate;
                 items.set(selected, toUpdate);
                 aa.notifyDataSetChanged();
                 edittext.setText(""); // set edittext to empty after update
@@ -225,9 +208,7 @@ public class TravelLog extends Activity implements OnItemClickListener, OnInitLi
             FileOutputStream fos = openFileOutput(fileName, MODE_PRIVATE);
             OutputStreamWriter out = new OutputStreamWriter(fos);
             for (String s:items) {
-                int space = s.indexOf(" ");
-                String i = s.substring(space+1); // get rid of number before writing to text file
-                out.write(i + "\n");
+                out.write(s + "\n");
             }
             out.close();
         }

@@ -7,10 +7,14 @@ package com.example.kellihe_emil.traveldiary;
 
 import android.app.Activity;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import java.io.BufferedReader;
@@ -20,6 +24,7 @@ import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.graphics.drawable.AnimationDrawable;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,9 +35,9 @@ public class Post extends Activity implements View.OnClickListener{
     private String emailbody;
 
     private NotificationManager mNotificationManager;
-    private Notification notifyDetails;
+    private NotificationCompat.Builder mBuilder = null;
     private int SIMPLE_NOTFICATION_ID;
-    private String contentText = "Your text has been created!";
+    private String contentText = "Your post has been created!";
     private String tickerText = "New Alert, Click Me!";
 
     @Override
@@ -56,49 +61,44 @@ public class Post extends Activity implements View.OnClickListener{
         Timer t2 = new Timer();
         t2.schedule(task2, 5000);
 
-        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotificationManager =
+                (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        //As of API 26 Notification Channels must be assigned to a channel
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("default",
+                    "Channel foobar",
+                    NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription("Channel description");
+            channel.setLightColor(Color.GREEN);
+            channel.enableVibration(true);
+            channel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            mNotificationManager.createNotificationChannel(channel);
+        }
         //create intent for action when notification selected
         //from expanded status bar
         Intent notifyIntent = new Intent(this, TravelLog.class);
-
-		/*
-		  Intent notifyIntent = new Intent();
-		  notifyIntent.setComponent(new ComponentName("com.course.example",
-		                  "com.course.example.IOTest"));
-		 */
 
         //create pending intent to wrap intent so that it
         //will fire when notification selected.
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 this, 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //build notification object and set parameters
-        notifyDetails =
-                new Notification.Builder(this)
-                        .setContentIntent(pendingIntent)
 
-                          //set Notification text and icon
-                        .setContentText(contentText)
-                        .setSmallIcon(R.drawable.droid)
+        //set parameter values for Notification
+        mBuilder = new NotificationCompat.Builder(this, "default")
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.droid)
+                .setContentTitle(tickerText)
+                .setContentText(contentText)
+                .setAutoCancel(true)     //cancel Notification after clicking on it
+                .setSound(Uri.parse("android.resource://com.course.example.notify/"+R.raw.photon))
+                //set Android to vibrate when notified
+                .setVibrate(new long[] {1000, 1000, 2000, 2000})
+                //allow heads up notification; otherwise use PRIORITY_DEFAULT
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
 
-                        .setTicker(tickerText)            //set status bar text
-
-                        .setWhen(System.currentTimeMillis())    //timestamp when event occurs
-
-                        .setAutoCancel(true)     //cancel Notification after clicking on it
-
-                        //set Android to vibrate when notified
-                        .setVibrate(new long[]{1000, 1000, 1000, 1000})
-
-                        // flash LED (color, on in millisec, off)
-                        //doesn't work for all handsets
-                        .setLights(Integer.MAX_VALUE, 500, 500)
-
-                        .build();
-
-
-
+        mNotificationManager.notify(SIMPLE_NOTFICATION_ID, mBuilder.build());
     }
 
 
